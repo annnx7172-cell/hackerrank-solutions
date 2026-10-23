@@ -1,5 +1,5 @@
 /*
 Enter your query here.
-*/
-SELECT CITY, STATE
+*/SELECT DISTINCT(CITY)
 FROM STATION
+WHERE ID%2=0
