@@ -2,7 +2,8 @@
 Enter your query here.
 */
 
-SELECT DISTINCT CITY
-FROM STATION
-WHERE UPPER(LEFT(CITY,1)) NOT IN ('A','E','I','O','U')
-    AND UPPER(RIGHT(CITY,1)) NOT IN ('A','E','I','O','U');
+SELECT Name
+FROM STUDENTS
+WHERE Marks > 75
+ORDER BY RIGHT(Name,3), ID ASC
+
