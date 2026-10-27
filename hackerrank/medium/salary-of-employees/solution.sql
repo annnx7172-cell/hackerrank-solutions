@@ -1,6 +1,8 @@
 /*
 Enter your query here.
 */
-SELECT Name
+SELECT name
 FROM Employee
-ORDER BY Name ASC
+WHERE salary>2000
+ AND months<10
+ ORDER BY employee_id ASC
