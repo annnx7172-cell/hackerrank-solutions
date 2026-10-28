@@ -1,4 +1,4 @@
-# Employee Salaries
+# Symmetric Pairs
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -37,17 +37,19 @@ __Sample Output__
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-27T05:09:46.901Z  
+**Submitted:** 2026-10-28T06:49:47.652Z  
 
 ```sql
-/*
-Enter your query here.
-*/
-SELECT name
-FROM Employee
-WHERE salary>2000
- AND months<10
- ORDER BY employee_id ASC
+
+SELECT DISTINCT f1.X, f1.Y
+FROM Functions f1
+JOIN Functions f2
+    ON f1.X = f2.Y
+   AND f1.Y = f2.X
+WHERE f1.X <= f1.Y
+GROUP BY f1.X, f1.Y
+HAVING f1.X < f1.Y OR COUNT(*) > 1
+ORDER BY f1.X;
 
 ```
 
