@@ -1,8 +1,10 @@
-/*
-Enter your query here.
-*/
-SELECT name
-FROM Employee
-WHERE salary>2000
- AND months<10
- ORDER BY employee_id ASC
+
+SELECT DISTINCT f1.X, f1.Y
+FROM Functions f1
+JOIN Functions f2
+    ON f1.X = f2.Y
+   AND f1.Y = f2.X
+WHERE f1.X <= f1.Y
+GROUP BY f1.X, f1.Y
+HAVING f1.X < f1.Y OR COUNT(*) > 1
+ORDER BY f1.X;
