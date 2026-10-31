@@ -1,4 +1,4 @@
-# Revising Aggregations - Averages
+# Average Population
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -18,12 +18,11 @@ The **CITY** table is described as follows:
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-10-30T15:15:58.150Z  
+**Submitted:** 2026-10-31T07:09:18.388Z  
 
 ```sql
-SELECT AVG(POPULATION)
+SELECT ROUND(AVG(POPULATION),0)
 FROM CITY
-WHERE District = "California"
 
 ```
 
