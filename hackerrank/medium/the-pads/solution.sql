@@ -1,12 +1,16 @@
 /*
 Enter your query here.
 */
-
-SELECT 
-    CASE
-       WHEN A>=C+B OR C>=A+B OR B>=A+C THEN 'Not A Triangle'
-         WHEN A=B AND B=C THEN 'Equilateral'
-        WHEN A=B OR B=C OR C=A THEN 'Isosceles'
-        ELSE 'Scalene'
-    END 
-FROM TRIANGLES  
+SELECT CONCAT(NAME, '(',SUBSTRING(OCCUPATION,1,1),')')
+FROM OCCUPATIONS
+ORDER BY NAME;
+SELECT CONCAT(
+    'There are a total of ',
+    COUNT(*),
+    ' ',
+    LOWER(OCCUPATION),
+    's.'
+)
+FROM OCCUPATIONS
+GROUP BY OCCUPATION
+ORDER BY COUNT(*), OCCUPATION;
