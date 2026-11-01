@@ -23,7 +23,7 @@ The **CITY** table is described as follows:
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-01T19:21:39.459Z  
+**Submitted:** 2026-11-01T19:21:58.227Z  
 
 ```sql
 SELECT MAX(POPULATION)-MIN(POPULATION)
