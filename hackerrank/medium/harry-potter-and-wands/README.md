@@ -1,4 +1,4 @@
-# Top Competitors
+# Ollivander's Inventory
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -29,29 +29,28 @@ The following tables contain data on the wands in Ollivander's inventory:
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-10T18:31:13.917Z  
+**Submitted:** 2026-11-10T18:52:14.498Z  
 
 ```sql
 /*
 Enter your query here.
 */
+SELECT w.id,p.age,w.coins_needed,w.power
+FROM Wands as w
+join Wands_Property as p
+on w.code = p. code 
+where p.is_evil = 0
+AND w.coins_needed=(
+    SELECT MIN(coins_needed)
+    FROM Wands AS W2
+    JOIN Wands_Property AS P2
+    ON W2.CODE= P2.CODE
+    WHERE P2.is_evil = 0
+    and P2.age= p.age 
+    and W2.power= w.power
+)
+order by w.power DESC,p.age DESC
 
-SELECT
-    H.hacker_id,
-    H.name
-FROM Hackers H
-JOIN Submissions S
-    ON H.hacker_id = S.hacker_id
-JOIN Challenges C
-    ON S.challenge_id = C.challenge_id
-JOIN Difficulty D
-    ON C.difficulty_level = D.difficulty_level
-WHERE S.score = D.score
-GROUP BY H.hacker_id, H.name
-HAVING COUNT(DISTINCT S.challenge_id) > 1
-ORDER BY
-    COUNT(DISTINCT S.challenge_id) DESC,
-    H.hacker_id ASC;
 
 ```
 
