@@ -1,4 +1,4 @@
-# Ollivander's Inventory
+# Challenges
 
 ![Difficulty](https://img.shields.io/badge/Difficulty-Medium-yellow)
 
@@ -54,28 +54,41 @@ _Challenges_ Table: <img src="https://s3.amazonaws.com/hr-challenge-images/19506
 **Language:** SQL  
 **Runtime:** N/A  
 **Memory:** N/A  
-**Submitted:** 2026-11-10T18:52:17.868Z  
+**Submitted:** 2026-11-12T03:12:41.399Z  
 
 ```sql
-/*
-Enter your query here.
-*/
-SELECT w.id,p.age,w.coins_needed,w.power
-FROM Wands as w
-join Wands_Property as p
-on w.code = p. code 
-where p.is_evil = 0
-AND w.coins_needed=(
-    SELECT MIN(coins_needed)
-    FROM Wands AS W2
-    JOIN Wands_Property AS P2
-    ON W2.CODE= P2.CODE
-    WHERE P2.is_evil = 0
-    and P2.age= p.age 
-    and W2.power= w.power
+WITH StudentCounts AS (
+    SELECT
+        hacker_id,
+        COUNT(*) AS total_challenges
+    FROM Challenges
+    GROUP BY hacker_id
+),
+CountFrequency AS (
+    SELECT
+        total_challenges,
+        COUNT(*) AS frequency
+    FROM StudentCounts
+    GROUP BY total_challenges
 )
-order by w.power DESC,p.age DESC
-
+SELECT
+    H.hacker_id,
+    H.name,
+    SC.total_challenges
+FROM Hackers H
+JOIN StudentCounts SC
+    ON H.hacker_id = SC.hacker_id
+JOIN CountFrequency CF
+    ON SC.total_challenges = CF.total_challenges
+WHERE
+    SC.total_challenges = (
+        SELECT MAX(total_challenges)
+        FROM StudentCounts
+    )
+    OR CF.frequency = 1
+ORDER BY
+    SC.total_challenges DESC,
+    H.hacker_id ASC;
 
 ```
 
