@@ -62,9 +62,9 @@ Joziah's manager is employee 6, who left the company because there is no row for
 ## Solution
 
 **Language:** SQL  
-**Runtime:** 75 ms  
-**Memory:** 0B  
-**Submitted:** 2026-11-12T04:25:02.856Z  
+**Runtime:** 323 ms (beats 95.59%)  
+**Memory:** 0B (beats 100.00%)  
+**Submitted:** 2026-11-12T04:25:07.385Z  
 
 ```sql
 # Write your MySQL query statement below
